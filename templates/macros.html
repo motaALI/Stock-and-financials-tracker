@@ -1,0 +1,4 @@
+<!-- 1. define a macro 2. give it a name-->
+{% macro stock_quote_link(stock_symbol) %}
+<a class="btn btn-info stretched-link" href="{{ url_for('stock.quote', symbol=stock_symbol) }}">Price {{ stock_symbol }} </a>
+{% endmacro %}

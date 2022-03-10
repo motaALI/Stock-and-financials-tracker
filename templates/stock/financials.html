@@ -1,0 +1,33 @@
+{% extends "base_layout.html" %}
+{% block title %} {{ symbol }} Financials {% endblock %}
+
+{% block content %} 
+<div class="container mt-4">
+    <div class="row">
+        <img src="https://quickchart.io/chart?width=500&height=200&c={{ chart_params }}"/>
+        <!-- {{chart_params }} -->
+    </div>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">As OF</th>
+                <th scope="col">Revenue</th>
+                <th scope="col">Gross Margin</th>
+                <th scope="col">EPS</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for quarter in financials | reverse %}
+            <tr>
+                <th scope="row">{{ quarter["date"]}}</th>
+                <th>{{ "${:,.0f}".format(quarter["revenue"] | float) }}</th>
+                <th>{{ ((quarter["grossProfit"] | float) * 100) | round(2) }}</th>
+                <th>${{ quarter["eps"] | round(2, 'floor') }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+   </table>
+    <!-- {{financials}}  -->
+</div>
+{% endblock %}

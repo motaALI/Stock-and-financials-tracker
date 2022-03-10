@@ -1,0 +1,21 @@
+<!-- use a macro-->
+{% from "macros.html" import stock_quote_link %}
+
+<h2>Your portfolio</h2>
+<ul class="list-group list-group-flush">
+    <!-- ## YOU CAN USE FOR ##-->
+    {% for symbol in ['AAPL', 'FB', 'GOOGL', 'TSLA'] %}
+    <!-- <li><a href="{{ url_for('stock.quote', symbol=symbol) }}">View {{ symbol }}</a></li> do the same but with macros -->
+    <li class="list-group-item">  {{ stock_quote_link(symbol)}}</li>
+
+    {% endfor %}
+</ul>
+
+<!-- """ OLD VERSION """
+    <h2>Your portfolio</h2>
+    <ul>
+        <li><a href="{{ url_for('stock.quote', symbol='AAPL') }}">View AAPL</a></li>
+        <li><a href="{{ url_for('stock.quote', symbol='GOOGL') }}">View GOOGL</a></li>
+        <li><a href="{{ url_for('stock.quote', symbol='FB') }}">View FB</a></li>
+    </ul>
+-->

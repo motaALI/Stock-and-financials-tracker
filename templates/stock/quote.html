@@ -1,0 +1,20 @@
+{% extends "base_layout.html" %}
+{% block title %} {{ symbol }} Stock Quote {% endblock %}
+{% block content %} 
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-sm">
+            <!-- USE JINJA FILTER upper && round(2, 'floor')-->
+            <!-- ### USE CAN ALLSO USE Python method directlly symbol.upper() ### -->
+            <h1 class="mb-3"> {{ symbol | upper }}</h1>
+            <hr/>
+            <h2>Price: {{ stock_price | round(2, 'floor')}}</h2>
+        </div>
+        <div class="col">
+            <!-- Inclouding anthor html page-->
+            {% include 'shared/portfolio.html' %}
+        </div>
+    </div>
+    <a type="button" class="btn btn-info" href="{{ url_for('stock.financials', symbol=symbol) }}"> {{ symbol }} financials Report</a>
+</div>
+{% endblock %}

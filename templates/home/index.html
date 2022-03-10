@@ -1,0 +1,19 @@
+{% extends "base_layout.html" %}
+{% block title %} Home Page {% endblock %}
+
+{% block content %} 
+<div class="row">
+    <div class="col-sm">
+        <h1 class="mb-3"> Welcome to StockApp</h1>
+        <div>This is a quick way view the price of stocks</div>
+        <div>
+            <img style=" max-width: 100%;height: auto;" src="../static/images/pngtree-25d-business-technology.jpg">
+        </div>
+    </div>
+    <div class="col">
+        <!-- Inclouding anthor html page-->
+        {% include 'shared/portfolio.html' %}
+    </div>
+</div>
+{% endblock %}
+      
