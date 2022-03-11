@@ -5,7 +5,7 @@ from quickchart import QuickChart
 stock = Blueprint('stock', __name__, url_prefix='/stock')
 
 
-API_KEY = "a26ab4dd15f67a52efecbdffb6257bb4"
+
 API_URL = 'https://financialmodelingprep.com/api/v3/quote-short/{symbol}'
 
 def fetch_price(symbol):
